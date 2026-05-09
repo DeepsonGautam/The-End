@@ -39,12 +39,12 @@ func spawn_enemy(pos: Vector2):
 	add_child(enemy)
 
 func increase_difficulty():
-	# gradually add more enemies
+
 	max_enemies = min(max_enemies + 1, 14)
 	timers.append(randf_range(1.0, max_interval))
-	# gradually shrink the gap
+
 	min_interval = max(0.3, min_interval - 0.4)
 	max_interval = max(0.6, max_interval - 0.5)
-	# speed up
+
 	fall_speed = min(1200.0, fall_speed + 80)
 	print("Difficulty up! Streams: ", max_enemies, " Interval: ", min_interval, "-", max_interval, " Speed: ", fall_speed)
