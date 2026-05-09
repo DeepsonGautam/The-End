@@ -1,0 +1,241 @@
+[gd_scene format=3 uid="uid://c5a728yfyygw1"]
+
+[ext_resource type="AudioStream" uid="uid://bxiidgufrrwf1" path="res://Assets/Music/ui hover.mp3" id="1_a6mvv"]
+[ext_resource type="Script" uid="uid://5iujece8ahqg" path="res://Scripts/spawner.gd" id="1_ddf65"]
+[ext_resource type="AudioStream" uid="uid://bthtu67lb8nwu" path="res://Assets/Music/button click.mp3" id="1_s81y4"]
+[ext_resource type="PackedScene" uid="uid://bup8jh0liq3v5" path="res://Scene/Player movement.tscn" id="2_dlwip"]
+[ext_resource type="Texture2D" uid="uid://crw85iel2ysly" path="res://Assets/brackeys_platformer_assets/sprites/anyone-need-some-space-backgrounds-for-their-games-heres-a-v0-3td1247uijw91.jpg" id="2_ejll3"]
+[ext_resource type="AudioStream" uid="uid://crsfyew18y6y4" path="res://Assets/Music/Ui pop.mp3" id="2_s81y4"]
+[ext_resource type="Script" uid="uid://024ybyrfo1nb" path="res://Scripts/parallax_layer.gd" id="2_scul4"]
+[ext_resource type="PackedScene" uid="uid://dk0um2pp6nkm3" path="res://Scene/enemy.tscn" id="5_pcvp0"]
+[ext_resource type="AudioStream" uid="uid://de0nrhp2aa2ml" path="res://Assets/Music/Game over.mp3" id="6_37axr"]
+[ext_resource type="FontFile" uid="uid://cckah7a87g2ar" path="res://Assets/text/batmfa__.ttf" id="7_ddf65"]
+[ext_resource type="AudioStream" uid="uid://camrvmmyckj56" path="res://Assets/Music/In game.mp3" id="7_ol2hl"]
+[ext_resource type="Script" uid="uid://d3q5ryav6ki6x" path="res://Scripts/timer_label.gd" id="9_6a5p4"]
+[ext_resource type="Script" uid="uid://cqbyxitotfppx" path="res://Scripts/game_over.gd" id="9_h7cfj"]
+[ext_resource type="FontFile" uid="uid://bu7iwhbpk4spl" path="res://Assets/text/batmfo__.ttf" id="9_y56vo"]
+[ext_resource type="Script" uid="uid://c42kfye80xodl" path="res://Scripts/High Score.gd" id="10_nka0b"]
+[ext_resource type="Script" uid="uid://dfifm70piceny" path="res://Scripts/death_menu.gd" id="13_0gfnl"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_emx41"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ejll3"]
+normal = Vector2(-1, 0)
+distance = -890.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_scul4"]
+normal = Vector2(1, 0)
+distance = 131.0
+
+[sub_resource type="GDScript" id="GDScript_ddf65"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ddf65"]
+font = ExtResource("7_ddf65")
+font_size = 60
+
+[sub_resource type="LabelSettings" id="LabelSettings_y56vo"]
+font = ExtResource("7_ddf65")
+font_size = 20
+
+[sub_resource type="LabelSettings" id="LabelSettings_6a5p4"]
+font = ExtResource("9_y56vo")
+font_size = 32
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nka0b"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_size = 9
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0gfnl"]
+bg_color = Color(0.10747976, 0.10747973, 0.10747973, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_size = 9
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kufhj"]
+bg_color = Color(0.33101895, 0.33101892, 0.33101892, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_size = 9
+
+[node name="World" type="Node2D" unique_id=1209763372]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=469650517]
+position = Vector2(544, 150)
+position_smoothing_enabled = true
+
+[node name="Player" parent="." unique_id=219869988 instance=ExtResource("2_dlwip")]
+position = Vector2(3, 48)
+
+[node name="Death" type="AudioStreamPlayer2D" parent="Player" unique_id=2039771624]
+process_mode = 3
+position = Vector2(-3, -48)
+stream = ExtResource("6_37axr")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="." unique_id=263230190]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground" unique_id=474729502]
+motion_scale = Vector2(0.5, 0.5)
+script = ExtResource("2_scul4")
+scroll_speed = 200.0
+
+[node name="BG1" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer" unique_id=1045989044]
+position = Vector2(545, -487.00003)
+scale = Vector2(0.2536706, 0.25367066)
+texture = ExtResource("2_ejll3")
+
+[node name="BG2" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer" unique_id=2112196392]
+position = Vector2(545.0001, 565)
+scale = Vector2(0.25308862, 0.25308862)
+texture = ExtResource("2_ejll3")
+
+[node name="BORDER" type="Node" parent="." unique_id=837535948]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="BORDER" unique_id=1393374229]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BORDER/StaticBody2D" unique_id=435446329]
+position = Vector2(549, 469)
+shape = SubResource("WorldBoundaryShape2D_emx41")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="BORDER" unique_id=1331075769]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BORDER/StaticBody2D2" unique_id=864462765]
+shape = SubResource("WorldBoundaryShape2D_ejll3")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="BORDER" unique_id=1607478222]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BORDER/StaticBody2D3" unique_id=144804277]
+shape = SubResource("WorldBoundaryShape2D_scul4")
+
+[node name="Spawner" type="Node2D" parent="." unique_id=1955182665]
+script = ExtResource("1_ddf65")
+enemy_scene = ExtResource("5_pcvp0")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=679694755]
+script = SubResource("GDScript_ddf65")
+
+[node name="Game Over" type="Label" parent="CanvasLayer" unique_id=618125876]
+process_mode = 3
+visible = false
+offset_left = 367.0
+offset_top = 96.0
+offset_right = 1097.0
+offset_bottom = 196.0
+size_flags_horizontal = 4
+text = "GAME OVER"
+label_settings = SubResource("LabelSettings_ddf65")
+script = ExtResource("9_h7cfj")
+
+[node name="TimerLabel" type="Label" parent="CanvasLayer" unique_id=1262200117]
+offset_left = 975.0
+offset_top = 28.0
+offset_right = 1159.0
+offset_bottom = 78.0
+text = "00;00"
+label_settings = SubResource("LabelSettings_y56vo")
+script = ExtResource("9_6a5p4")
+
+[node name="HighScoreLabel" type="Label" parent="CanvasLayer" unique_id=1196510018]
+offset_left = 969.0
+offset_top = 62.0
+offset_right = 1153.0
+offset_bottom = 112.0
+text = "00;00"
+label_settings = SubResource("LabelSettings_y56vo")
+script = ExtResource("10_nka0b")
+
+[node name="Enemy" parent="." unique_id=506804421 instance=ExtResource("5_pcvp0")]
+position = Vector2(504, -325)
+
+[node name="Label" type="Label" parent="Enemy" unique_id=412925359]
+offset_left = -83.0
+offset_top = -18.0
+offset_right = 75.0
+offset_bottom = 15.0
+text = "Enemy!!"
+label_settings = SubResource("LabelSettings_6a5p4")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=961260647]
+process_mode = 3
+visible = false
+offset_left = -112.0
+offset_top = -213.0
+offset_right = 1220.0
+offset_bottom = 752.0
+color = Color(0, 0, 0, 0.6313726)
+
+[node name="DeathMenu" type="VBoxContainer" parent="." unique_id=73432245]
+process_mode = 3
+visible = false
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 385.0
+offset_top = 87.0
+offset_right = 709.0
+offset_bottom = 227.0
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_constants/separation = 14
+script = ExtResource("13_0gfnl")
+
+[node name="Main" type="Button" parent="DeathMenu" unique_id=1515796905]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+size_flags_stretch_ratio = 10.61
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_ddf65")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_nka0b")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_0gfnl")
+theme_override_styles/hover = SubResource("StyleBoxFlat_kufhj")
+text = " Main Menu "
+
+[node name="exit" type="Button" parent="DeathMenu" unique_id=1191078786]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 10.61
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_ddf65")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_nka0b")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_0gfnl")
+theme_override_styles/hover = SubResource("StyleBoxFlat_kufhj")
+text = "Exit"
+
+[node name="Music" type="Node" parent="." unique_id=894507588]
+
+[node name="GameOver" type="AudioStreamPlayer" parent="Music" unique_id=468732067]
+process_mode = 3
+stream = ExtResource("6_37axr")
+
+[node name="In game" type="AudioStreamPlayer" parent="Music" unique_id=234236801]
+stream = ExtResource("7_ol2hl")
+volume_db = -8.564
+autoplay = true
+bus = &"Music"
+parameters/looping = true
+
+[node name="ButtonClick" type="AudioStreamPlayer" parent="Music" unique_id=142575008]
+stream = ExtResource("1_s81y4")
+
+[node name="UiHover" type="AudioStreamPlayer" parent="Music" unique_id=32290974]
+stream = ExtResource("1_a6mvv")
+
+[node name="UiPop" type="AudioStreamPlayer" parent="Music" unique_id=1280695607]
+stream = ExtResource("2_s81y4")
+
+[connection signal="body_entered" from="Enemy" to="CanvasLayer" method="_on_enemy_body_entered"]
+[connection signal="mouse_entered" from="DeathMenu/Main" to="DeathMenu" method="_on_main_mouse_entered"]
+[connection signal="pressed" from="DeathMenu/Main" to="DeathMenu" method="_on_main_menu_pressed"]
+[connection signal="mouse_entered" from="DeathMenu/exit" to="DeathMenu" method="_on_exit_mouse_entered"]
+[connection signal="pressed" from="DeathMenu/exit" to="DeathMenu" method="_on_exit_pressed"]

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bxiidgufrrwf1"
+path="res://.godot/imported/ui hover.mp3-99865a1b28e4df6c1bc1c9622b1bf386.mp3str"
+
+[deps]
+
+source_file="res://Assets/Music/ui hover.mp3"
+dest_files=["res://.godot/imported/ui hover.mp3-99865a1b28e4df6c1bc1c9622b1bf386.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,93 @@
+[gd_scene format=3 uid="uid://bup8jh0liq3v5"]
+
+[ext_resource type="Script" uid="uid://bdtb23xmqmhet" path="res://Scripts/player_movement.gd" id="1_74g00"]
+[ext_resource type="Texture2D" uid="uid://bfefu7t0gni3w" path="res://Assets/craftpix-net-381552-free-water-and-fire-magic-sprite-vector-pack/Fire Ball/PNG/Fire Ball_Frame_08.png" id="1_otkm7"]
+[ext_resource type="Texture2D" uid="uid://cuvcnbkkxy6y6" path="res://Assets/craftpix-net-381552-free-water-and-fire-magic-sprite-vector-pack/Fire Ball/PNG/Fire Ball_Frame_07.png" id="2_lqudw"]
+[ext_resource type="Texture2D" uid="uid://dgru0rxr80uce" path="res://Assets/craftpix-net-381552-free-water-and-fire-magic-sprite-vector-pack/Fire Ball/PNG/Fire Ball_Frame_06.png" id="3_2tmjp"]
+[ext_resource type="Texture2D" uid="uid://c2d27uk0o0i33" path="res://Assets/craftpix-net-381552-free-water-and-fire-magic-sprite-vector-pack/Fire Ball/PNG/Fire Ball_Frame_05.png" id="4_8864c"]
+[ext_resource type="Texture2D" uid="uid://bi7uuin1vqtwh" path="res://Assets/craftpix-net-381552-free-water-and-fire-magic-sprite-vector-pack/Fire Ball/PNG/Fire Ball_Frame_04.png" id="5_s1dva"]
+[ext_resource type="Texture2D" uid="uid://57vvmntvpeb0" path="res://Assets/craftpix-net-381552-free-water-and-fire-magic-sprite-vector-pack/Fire Ball/PNG/Fire Ball_Frame_03.png" id="6_a0lph"]
+[ext_resource type="Texture2D" uid="uid://t51yeaclblpq" path="res://Assets/craftpix-net-381552-free-water-and-fire-magic-sprite-vector-pack/Fire Ball/PNG/Fire Ball_Frame_02.png" id="7_t8cxg"]
+[ext_resource type="Texture2D" uid="uid://cha4cgugnx1gy" path="res://Assets/craftpix-net-381552-free-water-and-fire-magic-sprite-vector-pack/Fire Ball/PNG/Fire Ball_Frame_01.png" id="8_dp8hi"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sps1u"]
+atlas = ExtResource("1_otkm7")
+region = Rect2(0, 0, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mv6xa"]
+atlas = ExtResource("2_lqudw")
+region = Rect2(0, 0, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_02rvi"]
+atlas = ExtResource("3_2tmjp")
+region = Rect2(0, 0, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_518fc"]
+atlas = ExtResource("4_8864c")
+region = Rect2(0, 0, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_srvn8"]
+atlas = ExtResource("5_s1dva")
+region = Rect2(0, 0, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dqavp"]
+atlas = ExtResource("6_a0lph")
+region = Rect2(0, 0, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kybbk"]
+atlas = ExtResource("7_t8cxg")
+region = Rect2(0, 0, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bw4wy"]
+atlas = ExtResource("8_dp8hi")
+region = Rect2(0, 0, 640, 640)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_im4rc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sps1u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mv6xa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_02rvi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_518fc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_srvn8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dqavp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kybbk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bw4wy")
+}],
+"loop": true,
+"name": &"Fire ball",
+"speed": 12.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_otkm7"]
+radius = 16.03122
+
+[node name="Player" type="CharacterBody2D" unique_id=219869988 groups=["Player"]]
+script = ExtResource("1_74g00")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=878116066]
+position = Vector2(556, 300)
+scale = Vector2(0.084375024, 0.084375024)
+sprite_frames = SubResource("SpriteFrames_im4rc")
+animation = &"Fire ball"
+autoplay = "Fire ball"
+frame_progress = 0.12883879
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=953745297]
+position = Vector2(556, 301)
+shape = SubResource("CircleShape2D_otkm7")
